@@ -1,0 +1,43 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  # 格式<名称复数形式>.<组名>,名称需要和spec.group匹配
+  name: crontabs.stable.example.com
+spec:
+  # 一般填写企业group名称
+  group: stable.example.com
+  # 列出自定资源的api版本
+  versions:
+  - name: v1beta1 # 比如v1, v1beta1等
+    served: true  # 开通rest api 访问
+    storage: true # 必须标记一个且只有一个的版本作为存储版本
+    # 自定义对象的申明规范,
+    # 例: deployment.spec/replicas = 3 是一个整数型而不是 string
+    schema:
+      # 同一个规范标准
+      openAPIV3Schema:
+        description: Define CronTab YAML SPEC
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              cronSpec:
+                type: string
+              image: 
+                type: string
+              replicas:
+                type: integer
+  # 定义作用范围: Namespaced，或者全局 cluster(pv, storageclass)
+  scope: Namespaced
+  names:
+    # kind是sigular的一种驼峰形式定义
+    kind: CronTab
+    # 用于rest api中的定义: /apis/group/version/<plural>
+    # /apis/stable.example.com/v1beta1/crontabs
+    plural: crontabs
+    # 别名
+    singular: crontab
+    # 缩写
+    shortNames:
+    - ct
