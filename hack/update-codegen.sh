@@ -19,7 +19,7 @@ set -o nounset
 set -o pipefail
 
 # corresponding to go mod init <module>
-MODULE=ithub.com/chen-mao/code-generator
+MODULE=controller-demo
 
 SCRIPT_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
 CODEGEN_PKG=${CODEGEN_PKG:-$(cd "${SCRIPT_ROOT}"; ls -d -1 ./vendor/k8s.io/code-generator 2>/dev/null || echo ../code-generator)}
@@ -29,7 +29,7 @@ CODEGEN_PKG=${CODEGEN_PKG:-$(cd "${SCRIPT_ROOT}"; ls -d -1 ./vendor/k8s.io/code-
 #                  k8s.io/kubernetes. The output-base is needed for the generators to output into the vendor dir
 #                  instead of the $GOPATH directly. For normal projects this can be dropped.
 bash "${CODEGEN_PKG}"/generate-groups.sh "deepcopy,client,informer,lister" \
-  ${SCRIPT_ROOT}/pkg/client ${SCRIPT_ROOT}/pkg/apis \
+  ${MODULE}/pkg/client ${MODULE}/pkg/apis \
   stable:v1beta1 \
   --output-base "${SCRIPT_ROOT}" \
   --go-header-file "${SCRIPT_ROOT}"/hack/boilerplate.go.txt

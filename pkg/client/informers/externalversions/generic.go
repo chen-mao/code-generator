@@ -19,9 +19,9 @@ limitations under the License.
 package externalversions
 
 import (
+	v1beta1 "controller-demo/pkg/apis/stable/v1beta1"
 	"fmt"
 
-	v1beta1 "./hack/../pkg/apis/stable/v1beta1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )

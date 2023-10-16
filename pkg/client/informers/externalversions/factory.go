@@ -19,13 +19,13 @@ limitations under the License.
 package externalversions
 
 import (
-	internalinterfaces "pkg/client/informers/externalversions/internalinterfaces"
-	stable "pkg/client/informers/externalversions/stable"
+	versioned "controller-demo/pkg/client/clientset/versioned"
+	internalinterfaces "controller-demo/pkg/client/informers/externalversions/internalinterfaces"
+	stable "controller-demo/pkg/client/informers/externalversions/stable"
 	reflect "reflect"
 	sync "sync"
 	time "time"
 
-	versioned "./hack/../pkg/client/clientset/versioned"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

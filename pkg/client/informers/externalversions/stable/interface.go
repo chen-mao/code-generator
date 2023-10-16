@@ -19,8 +19,8 @@ limitations under the License.
 package stable
 
 import (
-	internalinterfaces "pkg/client/informers/externalversions/internalinterfaces"
-	v1beta1 "pkg/client/informers/externalversions/stable/v1beta1"
+	internalinterfaces "controller-demo/pkg/client/informers/externalversions/internalinterfaces"
+	v1beta1 "controller-demo/pkg/client/informers/externalversions/stable/v1beta1"
 )
 
 // Interface provides access to each of this group's versions.

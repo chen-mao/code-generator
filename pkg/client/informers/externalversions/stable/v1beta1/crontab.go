@@ -20,12 +20,12 @@ package v1beta1
 
 import (
 	"context"
-	internalinterfaces "pkg/client/informers/externalversions/internalinterfaces"
+	stablev1beta1 "controller-demo/pkg/apis/stable/v1beta1"
+	versioned "controller-demo/pkg/client/clientset/versioned"
+	internalinterfaces "controller-demo/pkg/client/informers/externalversions/internalinterfaces"
+	v1beta1 "controller-demo/pkg/client/listers/stable/v1beta1"
 	time "time"
 
-	stablev1beta1 "./hack/../pkg/apis/stable/v1beta1"
-	versioned "./hack/../pkg/client/clientset/versioned"
-	v1beta1 "./hack/../pkg/client/listers/stable/v1beta1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
